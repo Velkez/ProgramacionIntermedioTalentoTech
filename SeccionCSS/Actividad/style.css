@@ -5,6 +5,12 @@ body{
 h1{
     text-align: center;
 }
+h2{
+    border-top: 2px solid;
+    width: 50%;
+    margin: auto;
+    padding-top: 1rem;
+}
 
 .container{
     background-color: rgb(255, 255, 255);
