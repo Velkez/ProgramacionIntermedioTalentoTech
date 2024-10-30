@@ -1,0 +1,107 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2{
+    text-align: center;
+}
+
+.container{
+    background-color: azure;
+    border: 3px solid rgb(97, 212, 251);
+    border-radius: 1rem;
+    padding: .5rem;
+    width: 20rem;
+    height: 20rem;
+    position: relative;
+    left: 25%;
+    top: 7rem;
+}
+
+.box-1{
+    background-color: rgb(248, 240, 255);
+    border: 3px solid rgb(218, 97, 251);
+    border-radius: 1rem;
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.194);
+}
+
+.box-2{
+    background-color: rgb(240, 255, 244);
+    border: 3px solid rgb(112, 251, 97);
+    border-radius: 1rem;
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.194);
+    top: .5rem;
+    right: .5rem;
+}
+
+.box-3{
+    background-color: rgb(255, 253, 240);
+    border: 3px solid rgb(251, 223, 97);
+    border-radius: 1rem;
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.194);
+    bottom: .5rem;
+    left: .5rem;
+}
+
+.box-4{
+    background-color: rgb(255, 240, 240);
+    border: 3px solid rgb(251, 97, 97);
+    border-radius: 1rem;
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.194);
+    bottom: .5rem;
+    right: .5rem;
+}
+
+.box-5{
+    background-color: rgb(240, 240, 255);
+    border: 3px solid rgb(97, 110, 251);
+    border-radius: 1rem;
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.194);
+    top: 35%;
+    left: 35%;
+}
