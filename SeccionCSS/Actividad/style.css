@@ -1,0 +1,60 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+.container{
+    background-color: rgb(255, 255, 255);
+    border: 5px solid rgb(225, 225, 225);
+    border-radius: 3rem;
+    padding: .5rem;
+    width: 20rem;
+    height: 20rem;
+    position: relative;
+    margin: 5rem auto;
+}
+
+.capa-1{
+    background-color: rgb(240, 252, 255, 0.402);
+    border: 3px solid rgb(97, 202, 251);
+    border-radius: 1rem;
+    backdrop-filter: blur(2px);
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    color: rgb(97, 202, 251);
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.337);
+    top: 50px;
+    left: 50px;
+    z-index: 0;
+}
+
+.capa-2{
+    background-color: rgba(247, 255, 240, 0.402);
+    border: 3px solid rgb(122, 233, 122);
+    border-radius: 1rem;
+    backdrop-filter: blur(2px);
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    color: rgb(122, 233, 122);
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.337);
+    top: 100px;
+    right: 100px;
+    z-index: 2;
+}
