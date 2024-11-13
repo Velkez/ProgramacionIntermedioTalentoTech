@@ -104,13 +104,13 @@ def agregar_estudiantes():
     return estudiante
 
 # Función para asignar las calificaciones a cada estudiante.
-def calificar_estudiante(materias, estudiante, expresion, notas={}):
+def calificar_estudiante(estudiante, expresion, notas={}):
     nota = 0.0
     nota_base = {"matematicas" : nota, "fisica": nota, "quimica": nota}
     
     while True:
         print ("\nTenemos el siguiente listado de materias: ")
-        print ("\n".join(f"-. {nombre}" for i, nombre in enumerate(materias)))
+        print ("\n".join([f"-. {materias}" for i, materias in enumerate(nota_base.keys())]))
         
         materia = input ("\n¿Qué materia desea calificar?: ")
         materia = materia.lower()
@@ -118,7 +118,7 @@ def calificar_estudiante(materias, estudiante, expresion, notas={}):
         if estudiante not in notas:
             notas[estudiante] = copy.deepcopy(nota_base)
         
-        if materia in materias and materia in notas[estudiante]:
+        if materia in nota_base.keys() and materia in notas[estudiante]:
             nota = generar_notas(estudiante, materia)
             notas[estudiante][materia] = nota
         else:
@@ -139,7 +139,6 @@ def calificar_estudiante(materias, estudiante, expresion, notas={}):
 def main():
     notas = {}
     expresion = r"^[sSnN]?$"
-    materias = ["matematicas", "fisica", "quimica"]
     
     while True:
         try:
@@ -154,7 +153,7 @@ def main():
                 
                 print ("\n".join([f"-. {nombre}" for i, nombre in enumerate(notas.keys())]))
                 estudiante = agregar_estudiantes()
-                notas = calificar_estudiante(materias, estudiante, expresion)
+                notas = calificar_estudiante(estudiante, expresion)
             else:
                 raise ValueError(f"\n'{respuesta}' no es una respuesta valida.")
         except ValueError as e:
