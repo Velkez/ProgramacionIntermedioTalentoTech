@@ -147,9 +147,11 @@ def main():
             if re.match(expresion, respuesta):
                 if re.match(r"^[nN]+$", respuesta):
                     break
+                
                 print ("\nTenemos los siguientes estudiantes: ")
                 if not notas:
                     print ("No hay estudiantes registrados.")
+                
                 print ("\n".join([f"-. {nombre}" for i, nombre in enumerate(notas.keys())]))
                 estudiante = agregar_estudiantes()
                 notas = calificar_estudiante(materias, estudiante, expresion)
