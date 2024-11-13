@@ -77,7 +77,6 @@ def generar_notas(estudiante, materia,):
         parcial = rango_nota(float(input("Parcial (40%): ")))
         
         promedio = ((((nota_1 + nota_2 + nota_3) / 3) * 0.6) + (parcial * 0.4)) / 1
-        # notas[materia] = round(promedio, 1)
         
         print (f"\nSe agregaron con exito las notas de {materia} del estudiante {estudiante}.")
         print (f"""Las notas son las siguientes: 
@@ -92,23 +91,22 @@ def generar_notas(estudiante, materia,):
     
     return round(promedio, 1)
         
-# Fución para agregar un estudiante dentro de una lista de estudiantes. Este crea la lista y almacena el nombre del estudiante dentro de esta.
+# Fución para agregar un estudiante dentro de una lista de estudiantes.
 def agregar_estudiantes():
     expresion = r"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"
-    estudiante = input("\nNombre del estudiante a agregar: ")
+    estudiante = input("\nNombre del estudiante a agregar o editar: ")
     
     if re.match(expresion, estudiante):
-        print (f"\nEl estudiante {estudiante} fue agregado con exito.")
+        print (f"\nEl estudiante {estudiante} será agregado o editado.")
     else:
         raise ValueError("Nombre no valido. Este no debe contener signos ni numeros.")
     
     return estudiante
 
 # Función para asignar las calificaciones a cada estudiante.
-def calificar_estudiante(materias, estudiante, notas={}):
+def calificar_estudiante(materias, estudiante, expresion, notas={}):
     nota = 0.0
     nota_base = {"matematicas" : nota, "fisica": nota, "quimica": nota}
-    expresion = r"^[sSnN]?$"
     
     while True:
         print ("\nTenemos el siguiente listado de materias: ")
@@ -120,33 +118,41 @@ def calificar_estudiante(materias, estudiante, notas={}):
         if estudiante not in notas:
             notas[estudiante] = copy.deepcopy(nota_base)
         
-        nota = generar_notas(estudiante, materia)
-        
-        if materia in notas[estudiante]:
+        if materia in materias and materia in notas[estudiante]:
+            nota = generar_notas(estudiante, materia)
             notas[estudiante][materia] = nota
         else:
-            raise ValueError(f"\n'{materia}' no se encuentra registrado. Por favor, digite alguna materia del listado.")
+            print (f"\n'{materia}' no se encuentra registrado. Por favor, digite alguna materia del listado.")
         
         print (f"\nLas notas van de la siguiente manera: \n{notas}")
         
-        pregunta = input ("\n¿Desea calificar otra materia? [S/n]:")
-        if re.match(expresion, pregunta) and re.match(r"^[nN]+$", pregunta):
-            break
+        respuesta = input ("\n¿Desea calificar otra materia? [S/n]:")
+        if re.match(expresion, respuesta):
+            if re.match(r"^[nN]+$", respuesta):
+                break
+        else:
+            raise ValueError(f"\n'{respuesta}' no es una respuesta valida.")
         
     return notas
 
+# Función principal
 def main():
+    notas = {}
     expresion = r"^[sSnN]?$"
     materias = ["matematicas", "fisica", "quimica"]
+    
     while True:
         try:
-            respuesta = input ("\n¿Desea agregar un nuevo estudiante? [S/n]: ")
+            respuesta = input ("\n¿Desea agregar un nuevo estudiante o editar uno existente? [S/n]: ")
             if re.match(expresion, respuesta):
-                if respuesta == "s" or respuesta == "S" or respuesta == "":
-                    estudiante = agregar_estudiantes()
-                    calificar_estudiante(materias, estudiante)
-                else:
+                if re.match(r"^[nN]+$", respuesta):
                     break
+                print ("\nTenemos los siguientes estudiantes: ")
+                if not notas:
+                    print ("No hay estudiantes registrados.")
+                print ("\n".join([f"-. {nombre}" for i, nombre in enumerate(notas.keys())]))
+                estudiante = agregar_estudiantes()
+                notas = calificar_estudiante(materias, estudiante, expresion)
             else:
                 raise ValueError(f"\n'{respuesta}' no es una respuesta valida.")
         except ValueError as e:
