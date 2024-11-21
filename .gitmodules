@@ -1,3 +1,6 @@
 [submodule "sahagun-tour"]
 	path = sahagun-tour
 	url = https://github.com/Velkez/sahagun-tour.git
+[submodule "PaginaPresentacionTalentoTech"]
+	path = PaginaPresentacionTalentoTech
+	url = https://github.com/Velkez/PaginaPresentacionTalentoTech.git
