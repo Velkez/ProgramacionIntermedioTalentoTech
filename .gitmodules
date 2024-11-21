@@ -1,0 +1,3 @@
+[submodule "sahagun-tour"]
+	path = sahagun-tour
+	url = https://github.com/Velkez/sahagun-tour.git
